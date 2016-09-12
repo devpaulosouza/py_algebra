@@ -1,20 +1,20 @@
-# -*- coding: utf-8 -*-
+    # -*- coding: utf-8 -*-
 import copy
 
 class matriz(object):
     matriz = []
     diagonal_principal = []
     diagonal_secundaria = []
-    def __init__(self, lin:int, col:int, matriz):
+    def __init__(self, lin:int, col:int):
         print()
         self.linhas = lin
         self.colunas = col
-        self.matriz = matriz
-        self.gera_matriz(matriz)
+        self.matriz = []
+        self.gera_matriz()
         self.is_quadrada = lin == col and lin != 0
 
     #Método para gerar uma matriz nula
-    def gera_matriz(self,matriz):
+    def gera_matriz(self):
         for i in range(self.linhas):
             #cria linha
             linha = []
@@ -67,3 +67,15 @@ class matriz(object):
                     if i+j == i+1:
                         diagonal.append(int(self.matriz[i][i]))
             self.diagonal_secundaria = diagonal
+
+    def somar(self, matriz_soma):
+        # Inicializa a matriz resultante nula com o numero de linhas e colunas da matriz atual
+        matriz_resultante = matriz(self.linhas, self.colunas)
+        # Testa se matrizes são de mesma ordem
+        if self.linhas == matriz_soma.linhas and self.colunas == matriz_soma.colunas:
+            for i in range(self.linhas):
+                for j in range(self.colunas):
+                    matriz_resultante.matriz[i][j] = self.matriz[i][j] + matriz_soma.matriz[i][j]
+        else:
+            matriz_resultante = -1
+        return matriz_resultante

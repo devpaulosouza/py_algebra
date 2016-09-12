@@ -1,12 +1,15 @@
 from py_algebra import matriz
 
-ma = []
-a = matriz.matriz(2,2,ma)
+a = matriz.matriz(2,2)
 a.ler_matriz()
 
-mb = []
-b = matriz.matriz(1,3,mb)
+b = matriz.matriz(2,2)
 b.ler_matriz()
+
+c = a.somar(b)
+
+
 
 a.mostrar()
 b.mostrar()
+c.mostrar()
